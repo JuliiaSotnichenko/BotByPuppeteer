@@ -9,24 +9,27 @@ async function bot() {
   await page.waitForSelector('.form-control');
   await page.click('.form-control');
 //   Submit new user
-  await page.waitForSelector('#displayName');
-//   await page.click('input[name="email"]');
-  await page.type('.form-control', 'juli.soty@gmail.com', {
+  await page.type('.form-control', 'july.soty@gmail.com', {
     delay: 100,
   });
   await page.click('button[type="submit"]');
 
+  // next step create new user
+  
+  await page.waitForSelector('#displayName');
+  await page.type('#displayName', 'Jilia Soty', {
+    delay: 100,
+  });
+  await page.waitForSelector('#password');
+  await page.type('#password', 'Q123498765!');
+// checkbox
+  await page.waitForSelector('.css-1fpmf6l');
+  await page.click('.css-1fpmf6l');
 
-//   await page.waitForSelector('input[name="password"]');
-//   await page.click('input[name="password"]');
-//   await page.type('input[name="password"]', '1111111111', {
-//     delay: 100,
-//   });
-//   await page.type('.basic_form--textInput--3ZlM2 basic_form--input--3cO2P form_inputs--input--r-7Uo form_inputs--brand--nxF5w auth_branding--brand--3FsKf  lazy_input--lazyInput--2kTZE', '123456789', {
-//     delay: 300,
-//   });
-  //await page.keyboard.press('Enter');
+  await page.waitForSelector('#signup-submit');
+  await page.click('#signup-submit');
+
   await page.screenshot({ path: 'example.png' });
-//   await browser.close();
+  await browser.close();
 }
 bot();
